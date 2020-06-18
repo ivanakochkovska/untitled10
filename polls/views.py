@@ -89,7 +89,8 @@ def seir_model_wth_social_distancing(request):
     beta = 1.75
     gamma = 0.5
     quar=request.GET['quar']
-    rho = int(quar)
+    qq=int(quar)
+    rho = float(qq/100)
     params = alpha, beta, gamma, rho
     # Code that sets up figure goes here; in the question, that's ...
     FigureCanvasAgg(f)
@@ -244,6 +245,7 @@ def network(request):
             new_color_map.append('red')
         else:
             new_color_map.append('blue')
+
 
     nx.draw(g, pos, node_sizes=node_sizes, node_color=new_color_map)
     plt.savefig('foo1.png')
